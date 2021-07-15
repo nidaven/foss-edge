@@ -1,0 +1,37 @@
+version: "3.7"
+
+networks: 
+    infrastructure:
+        driver: bridge
+
+services: 
+    messaging-hub:
+        container_name: messaging-hub
+        env_file: "./.env"
+        hostname: messenger 
+        networks: 
+            infrastructure: {}
+        build: 
+            context: ./messaging
+            args:     
+             - ENVMQTTUSER
+             - ENVMQTTPASS
+        ports: 
+            - "1883:1883"
+            - "9001:9001"
+    data-acquisition:
+        container_name: data-acquisition
+        env_file: "./.env"
+        hostname: data-acquisition
+        networks: 
+            infrastructure: {}
+        build:
+            context: ./data-acquisition
+            args:
+               - ENVMQTTUSER
+               - ENVMQTTPASS
+               - ENVOPCUSER
+               - ENVOPCPASS
+               - MQTTHOSTNAME=messenger
+        ports: 
+            - "1880:1880"

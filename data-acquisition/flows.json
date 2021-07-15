@@ -1,0 +1,1515 @@
+[
+    {
+        "id": "d85dd4e7.e244b",
+        "type": "tab",
+        "label": "OPC - MQTT gateway",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7bcd1812.1a3f18",
+        "type": "group",
+        "z": "d85dd4e7.e244b",
+        "style": {
+            "stroke": "#2e333a",
+            "stroke-opacity": "1",
+            "fill": "#2e333a",
+            "fill-opacity": "0.75",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ed421a9.d6319e8",
+            "f993fd12.db5e98",
+            "2c050a3d.91f496",
+            "c4a2b7e9.f6d758",
+            "2d44413f.695ffe",
+            "920bb324.4567b",
+            "a780dd17.4928f",
+            "a9c2575.7266ca8",
+            "f588abb9.2dd5e8",
+            "518560f.f9f37a",
+            "2ff5bbe4.c99cc4",
+            "5b004226.ae16fc"
+        ],
+        "x": 54,
+        "y": 919,
+        "w": 852,
+        "h": 222
+    },
+    {
+        "id": "7cbb13a.fa224ec",
+        "type": "group",
+        "z": "d85dd4e7.e244b",
+        "style": {
+            "stroke": "#2e333a",
+            "stroke-opacity": "1",
+            "fill": "#2e333a",
+            "fill-opacity": "0.75",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7f06955f.73b3ac",
+            "fffd7174.4ef01",
+            "d950e134.8b062",
+            "314e1e7.8e106e2",
+            "5a9aaa1b.2abcd4",
+            "e636e9f6.c3b648",
+            "b413b468.db6528",
+            "928a25a4.99c0c8",
+            "9e270dd4.850d4",
+            "1d8503e2.31ddbc",
+            "d8a2296a.7db9b8",
+            "202f89d2.2bb0f6",
+            "56c99588.a0ee3c",
+            "39926436.9ebfac",
+            "3121bbdc.8190d4",
+            "94768633.8ee278",
+            "e8dab409.ea8428",
+            "5144550b.c9f54c",
+            "45a2e16e.deb43",
+            "6bf87892.064e08",
+            "75e961d4.31d77",
+            "6f789528.93f64c",
+            "aeaa73c9.2e089",
+            "52aaab0f.854744",
+            "8d9ab239.1903f",
+            "abce4ece.0d434",
+            "32e35205.55b1ce",
+            "5928d423.c2d23c",
+            "54aa4bb1.e98c64"
+        ],
+        "x": 54,
+        "y": 19,
+        "w": 852,
+        "h": 622
+    },
+    {
+        "id": "be158dac.6d883",
+        "type": "group",
+        "z": "d85dd4e7.e244b",
+        "style": {
+            "stroke": "#2e333a",
+            "stroke-opacity": "1",
+            "fill": "#2e333a",
+            "fill-opacity": "0.75",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4dfb5b6d.640f24",
+            "a0babedd.e39da",
+            "5b2d7f49.c0dfb",
+            "14f7f02e.e4138",
+            "65a44c4b.c96a64"
+        ],
+        "x": 54,
+        "y": 1159,
+        "w": 852,
+        "h": 182
+    },
+    {
+        "id": "ebe07f92.e1b13",
+        "type": "group",
+        "z": "d85dd4e7.e244b",
+        "style": {
+            "stroke": "#2e333a",
+            "stroke-opacity": "1",
+            "fill": "#2e333a",
+            "fill-opacity": "0.75",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "95b22a04.c05e18",
+            "7611713d.beeb",
+            "62ea3572.1ce87c",
+            "fc29f6b5.0e7be8",
+            "33ea08d8.7cb2c8",
+            "4870cde7.5f1e74",
+            "bea26e7d.8e1a3",
+            "1ad77fe8.d17e6",
+            "f7d28aa3.c99f68",
+            "b730b2c8.3141c",
+            "341832e3.85a12e",
+            "c0fe2abf.03d598",
+            "b36a277b.cc7918",
+            "e962d34a.2b688"
+        ],
+        "x": 54,
+        "y": 679,
+        "w": 1052,
+        "h": 222
+    },
+    {
+        "id": "6a71864c.aa6cc8",
+        "type": "ui_group",
+        "name": "Operations",
+        "tab": "d3c01626.201ec8",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "d3c01626.201ec8",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d2ec86aa.d40148",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.178.34:49320",
+        "secpol": "None",
+        "secmode": "None",
+        "login": true
+    },
+    {
+        "id": "7cae3f04.2df14",
+        "type": "mqtt-broker",
+        "name": "Local_mosquitto_broker",
+        "broker": "MQTTHOSTNAME",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "37f19ca9.1cc224",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "54d885b2.de27bc",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "35ca82f8.391a5e",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a2636587.404118",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2877c380.94681c",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "bdecd870.328a48",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8b99223c.794e7",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 15,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e027dfac.c455e",
+        "type": "ui_spacer",
+        "z": "d85dd4e7.e244b",
+        "name": "spacer",
+        "group": "6a71864c.aa6cc8",
+        "order": 18,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ed421a9.d6319e8",
+        "type": "OpcUa-Client",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "endpoint": "d2ec86aa.d40148",
+        "action": "readmultiple",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "1000",
+        "timeUnit": "ms",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "name": "opc-client",
+        "x": 260,
+        "y": 1040,
+        "wires": [
+            [
+                "f993fd12.db5e98",
+                "2d44413f.695ffe"
+            ]
+        ]
+    },
+    {
+        "id": "f993fd12.db5e98",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Debug output read array",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "2c050a3d.91f496",
+        "type": "inject",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Read multiple items",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "collect",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "readmultiple",
+        "payload": "ALL",
+        "payloadType": "str",
+        "x": 320,
+        "y": 1000,
+        "wires": [
+            [
+                "c4a2b7e9.f6d758"
+            ]
+        ]
+    },
+    {
+        "id": "c4a2b7e9.f6d758",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Read Loop",
+        "func": "if (flow.get('readstart')==true){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nflow.set('ready', false);",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1000,
+        "wires": [
+            [
+                "f588abb9.2dd5e8"
+            ]
+        ]
+    },
+    {
+        "id": "95b22a04.c05e18",
+        "type": "OpcUa-Browser",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "endpoint": "d2ec86aa.d40148",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "opc-browser",
+        "x": 230,
+        "y": 780,
+        "wires": [
+            [
+                "62ea3572.1ce87c",
+                "7611713d.beeb"
+            ]
+        ]
+    },
+    {
+        "id": "7611713d.beeb",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Debug namespace browser",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "62ea3572.1ce87c",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Decode & filter nodeids",
+        "func": "/*\nFor every namespace variables received from the payload, queue the variables with\na nodeClass of 2 (why? - something to do with having conforming with machine\ndatapoints) for the OPC client's node array to be read all at once. For queued \ndata to be read properly, the msg has to be properly formatted.\n*/\n\n\nvar items = msg.payload;\nvar nodeClass1array = [];\nvar nodeClass2array = [];\nvar parsecomplete = true; //remains true if child objects are all nodeClass 2 objects\n\n//on flow reload\nif (flow.get('system_reset') == 'true'){\n    return null;\n}\n\nfor (var i=0; i<items.length; i++) {\n    var item = items[i];\n\tvar ref = item.item;\n// \tif (ref.dataType==\"Null\"){break;}\n\tvar nodeClass = ref.$nodeClass;\n\ttopicstring = \"ns=\"+ref.nodeId.namespace+\";\"+\"s=\"+ref.nodeId.value;\n\tconsole.log(topicstring);\n\tif (flow.get(\"inputRootTopic\")!=topicstring.split(\";\")[1].split(\"=\")[1].split(\".\").shift()){\n\t    continue\n\t} //to discard all root topics not of interest\n\t\n// \tvar typeDef = ref.typeDefinition;\n// \tvar bname = ref.browseName;\n// \tvar ns=bname.namespaceIndex;\n// \tvar name=bname.name;\n// \tconsole.log(\"Nodeclass 2: \" + String(ref.nodeClass==2));\n// \tconsole.log(\"datatype \" + typeof(ref.dataType));\n// \tconsole.log(\"Null check\" + String(ref.dataType=='Null'));\n\n\t// Select only wanted namespace variables and format payload\n\tif (ref.nodeClass==1) {\n\t   var prohibitedObjects = [\"_System\", \"_Statistics\", \"_Hints\"];\n\t   if (prohibitedObjects.includes(topicstring.split('.').pop())) {\n\t        continue;\n\t   }\n\t   parsecomplete = false;\n \t   var nodeClass1msg = {};\n\t   nodeClass1msg.topic = topicstring;\n\t   nodeClass1msg.payload = \"\";\n\t   nodeClass1msg.actiontype = \"browse\";\n\t   console.log(\"Logging nodeClass1msg \\n\");\n\t   console.log(nodeClass1msg);\n\t   nodeClass1array.push(nodeClass1msg);\n\t} else \n\t    if (ref.nodeClass==2) {\n    \t    var nodeClass2msg = {};\n    \t\tnodeClass2msg.topic = topicstring;\n    // \t\tconsole.log(newmsg.topic);\n    \t\tnodeClass2msg.payload=\"\";\n    \t\tnodeClass2msg.dataType=ref.dataType;\n    \t\tnodeClass2msg.browseName=\"\"\n    \t\tnodeClass2msg.item=\"\";\n    // \t\tnewmsg.parts={};\n    // \t\tnewmsg.parts.index = i;\n    // \t\tnewmsg.parts.count=items.length;\n            console.log(\"Logging nodeClass2msg \\n\");\n    // \t\tconsole.log(nodeClass2msg);\n    \t\tnodeClass2array.push(nodeClass2msg);\n    \t}\n}\n\nif (parsecomplete) { \n    flow.set('browseDone', true);\n    return [nodeClass2array, null];\n} else {\n    console.log(nodeClass1array);\n    return [nodeClass2array, nodeClass1array];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 780,
+        "wires": [
+            [
+                "fc29f6b5.0e7be8",
+                "341832e3.85a12e"
+            ],
+            [
+                "33ea08d8.7cb2c8",
+                "f7d28aa3.c99f68"
+            ]
+        ]
+    },
+    {
+        "id": "fc29f6b5.0e7be8",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "debug filter function",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "2d44413f.695ffe",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Parse OPC objects to JSON",
+        "func": "newmsg = msg;\n// topics = newmsg.items;\n\n// topic = topics[2];\nrootnode = {};\n\nfor (var item = 0; item < newmsg.items.length; item++ ){\n    topic_structure = newmsg.items[item].nodeId.value.split(\".\");\n    metric_name = topic_structure[topic_structure.length-1];\n    mqtt_topic = topic_structure.join('/');\n    mqtt_msg = {};\n\n    mqtt_msg['payload'] = {};\n    mqtt_msg['payload']['metric name'] = metric_name;\n    mqtt_msg['payload']['value'] = newmsg.payload[item].value.value;\n    mqtt_msg['topic'] = mqtt_topic;\n    node.send(mqtt_msg);\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1040,
+        "wires": [
+            [
+                "920bb324.4567b",
+                "a780dd17.4928f"
+            ]
+        ]
+    },
+    {
+        "id": "920bb324.4567b",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Debug parser",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "a780dd17.4928f",
+        "type": "mqtt out",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Local UNS Broker",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7cae3f04.2df14",
+        "x": 790,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "a9c2575.7266ca8",
+        "type": "comment",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "Start Reading OPC nodes",
+        "info": "## Start Subscription\n\nAutomatically start reading when values to be read have been completely sent",
+        "x": 190,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "202f89d2.2bb0f6",
+        "type": "comment",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Clear OPC nodes to be read",
+        "info": "## Start Subscription\n\nAutomatically start reading when values to be read have been completely sent",
+        "x": 640,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "56c99588.a0ee3c",
+        "type": "comment",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Queue node ids from namespace to opc client",
+        "info": "## Start Subscription\n\nAutomatically start reading when values to be read have been completely sent",
+        "x": 710,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "33ea08d8.7cb2c8",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Class1msg debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "4870cde7.5f1e74",
+        "type": "delay",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Rate limiter",
+        "pauseType": "rate",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 860,
+        "wires": [
+            [
+                "1ad77fe8.d17e6"
+            ]
+        ]
+    },
+    {
+        "id": "39926436.9ebfac",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Format Node ID",
+        "func": "// store root topic for top level filtering during opc client read\nflow.set(\"inputRootTopic\",msg.payload.split(\".\").shift());\n\n//structure opc browser input payload\nmsg.topic = \"ns=2;s=\" + msg.payload;\nmsg.payload = \"\";\nmsg.actiontype=\"browse\";\n\n/*\nstore input payload in \"nodeid\" variable. This will be used when the browse\naction is executed.\n*/\nflow.set(\"inputNodeId\", msg);\nflow.set('displaynodeid', msg.topic);\n//return entire msg for debugging\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4dfb5b6d.640f24",
+        "type": "status",
+        "z": "d85dd4e7.e244b",
+        "g": "be158dac.6d883",
+        "name": "",
+        "scope": [
+            "ed421a9.d6319e8",
+            "95b22a04.c05e18"
+        ],
+        "x": 160,
+        "y": 1260,
+        "wires": [
+            [
+                "a0babedd.e39da",
+                "5b2d7f49.c0dfb"
+            ]
+        ]
+    },
+    {
+        "id": "a0babedd.e39da",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "be158dac.6d883",
+        "name": "Status debug",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "3121bbdc.8190d4",
+        "type": "ui_text_input",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "OPC UA Node ID input textbox",
+        "label": "",
+        "tooltip": "",
+        "group": "6a71864c.aa6cc8",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "39926436.9ebfac"
+            ]
+        ]
+    },
+    {
+        "id": "5b2d7f49.c0dfb",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "be158dac.6d883",
+        "name": "status_info",
+        "func": "//count all instances without 'clear items' reset\nstatus_info = flow.get('status_info') || {};\n\n// use variable name to store status information\n\nif( msg.status.source.type == 'OpcUa-Client'){\n    var_name = 'opcua_client'; // change to use source name instead of source type\n\n    // if (variable_name != 'OpcUa-Browser') return null; // remove to expand functionality\n    \n    // get value store and initialise if non existent\n    status_info[var_name] = status_info[var_name] || {}; \n\n    if (msg.status.text == 'nodeId stored'){\n        status_info[var_name]['queue_count'] = status_info[var_name]['queue_count'] || 0;\n        status_info[var_name]['queue_count'] = status_info[var_name]['queue_count'] + 1;\n    }\n    \n    if (msg.status.text == 'clear items'){\n        status_info[var_name]['queue_count'] = 0;\n    }\n}\n\nflow.set('status_info', status_info);\n\nreturn status_info[var_name];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1300,
+        "wires": [
+            [
+                "14f7f02e.e4138"
+            ]
+        ]
+    },
+    {
+        "id": "14f7f02e.e4138",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "be158dac.6d883",
+        "name": "status logger",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "65a44c4b.c96a64",
+        "type": "comment",
+        "z": "d85dd4e7.e244b",
+        "g": "be158dac.6d883",
+        "name": "Node status Information",
+        "info": "",
+        "x": 180,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "f588abb9.2dd5e8",
+        "type": "link out",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "ReadLoop",
+        "links": [
+            "518560f.f9f37a"
+        ],
+        "x": 655,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "518560f.f9f37a",
+        "type": "link in",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "ReadLoop",
+        "links": [
+            "f588abb9.2dd5e8"
+        ],
+        "x": 95,
+        "y": 1080,
+        "wires": [
+            [
+                "ed421a9.d6319e8"
+            ]
+        ]
+    },
+    {
+        "id": "94768633.8ee278",
+        "type": "ui_switch",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "",
+        "label": "TOGGLE READ STATE",
+        "tooltip": "",
+        "group": "6a71864c.aa6cc8",
+        "order": 16,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "start",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "stop",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "45a2e16e.deb43"
+            ]
+        ]
+    },
+    {
+        "id": "bea26e7d.8e1a3",
+        "type": "link in",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "RateLimitedPayload",
+        "links": [
+            "1ad77fe8.d17e6"
+        ],
+        "x": 95,
+        "y": 820,
+        "wires": [
+            [
+                "95b22a04.c05e18"
+            ]
+        ]
+    },
+    {
+        "id": "1ad77fe8.d17e6",
+        "type": "link out",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "RateLimitedPayload",
+        "links": [
+            "bea26e7d.8e1a3"
+        ],
+        "x": 315,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "f7d28aa3.c99f68",
+        "type": "link out",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Class1Payloads",
+        "links": [
+            "b730b2c8.3141c"
+        ],
+        "x": 695,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "b730b2c8.3141c",
+        "type": "link in",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Class1Payloads",
+        "links": [
+            "f7d28aa3.c99f68"
+        ],
+        "x": 155,
+        "y": 860,
+        "wires": [
+            [
+                "4870cde7.5f1e74"
+            ]
+        ]
+    },
+    {
+        "id": "e8dab409.ea8428",
+        "type": "ui_button",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "",
+        "group": "6a71864c.aa6cc8",
+        "order": 9,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Browse Node",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "5144550b.c9f54c"
+            ]
+        ]
+    },
+    {
+        "id": "5144550b.c9f54c",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Browse Input Node ID",
+        "func": "flow.set('system_reset', 'false');\nflow.set(\"discovered_nodeids\", []);\nmsg = flow.get(\"inputNodeId\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "aeaa73c9.2e089"
+            ]
+        ]
+    },
+    {
+        "id": "341832e3.85a12e",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Store output node ids",
+        "func": "//initialise storage array\ndiscovered_nodeids = flow.get('discovered_nodeids') || [];\n\n//queue received msg array in storage array \ndiscovered_nodeids.push(msg);\nflow.set('discovered_nodeids', discovered_nodeids);\n\n//keep for debugging \nreturn [discovered_nodeids];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 820,
+        "wires": [
+            [
+                "c0fe2abf.03d598"
+            ]
+        ]
+    },
+    {
+        "id": "45a2e16e.deb43",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Start / Stop controls",
+        "func": "if (msg.payload == \"start\" && flow.get(\"browseDone\")){\n    flow.set('readstart', true)\n} else if (msg.payload == \"stop\"){\n    /*\n    if button set to clear, set 'readstart' flag to false to stop the multiple\n    reading \n    */\n    flow.set('readstart', false);\n    \n}\n\n// return msg;\n\n// on clear,\n// send clearitems payload and disable readstart",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c0fe2abf.03d598",
+        "type": "debug",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "6bf87892.064e08",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Clear queued node ids",
+        "func": "if (msg.topic == 'clear'){\n    //this section of code, clears the queued nodeids from the opc client\n    msg = {};\n    msg.payload = \"\";\n    msg.topic = \"clearitems\";\n    // node.send(msg);\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "6f789528.93f64c"
+            ]
+        ]
+    },
+    {
+        "id": "75e961d4.31d77",
+        "type": "ui_button",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "",
+        "group": "6a71864c.aa6cc8",
+        "order": 13,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "clear",
+        "payloadType": "str",
+        "topic": "clear",
+        "topicType": "str",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "6bf87892.064e08"
+            ]
+        ]
+    },
+    {
+        "id": "6f789528.93f64c",
+        "type": "link out",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "ClearQueue",
+        "links": [
+            "2ff5bbe4.c99cc4"
+        ],
+        "x": 475,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2ff5bbe4.c99cc4",
+        "type": "link in",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "ClearQueue",
+        "links": [
+            "6f789528.93f64c"
+        ],
+        "x": 95,
+        "y": 1040,
+        "wires": [
+            [
+                "ed421a9.d6319e8"
+            ]
+        ]
+    },
+    {
+        "id": "b36a277b.cc7918",
+        "type": "link in",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "InputNodeIdPayload",
+        "links": [
+            "aeaa73c9.2e089"
+        ],
+        "x": 95,
+        "y": 780,
+        "wires": [
+            [
+                "95b22a04.c05e18"
+            ]
+        ]
+    },
+    {
+        "id": "aeaa73c9.2e089",
+        "type": "link out",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "InputNodeIDPayload",
+        "links": [
+            "b36a277b.cc7918"
+        ],
+        "x": 505,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "52aaab0f.854744",
+        "type": "ui_button",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "",
+        "group": "6a71864c.aa6cc8",
+        "order": 12,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Queue Discovered",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "8d9ab239.1903f"
+            ]
+        ]
+    },
+    {
+        "id": "8d9ab239.1903f",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "Queue in opc client",
+        "func": "msg = flow.get(\"discovered_nodeids\");\nreturn [msg];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "abce4ece.0d434"
+            ]
+        ]
+    },
+    {
+        "id": "abce4ece.0d434",
+        "type": "link out",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "QueueClientPayload",
+        "links": [
+            "5b004226.ae16fc"
+        ],
+        "x": 495,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5b004226.ae16fc",
+        "type": "link in",
+        "z": "d85dd4e7.e244b",
+        "g": "7bcd1812.1a3f18",
+        "name": "",
+        "links": [
+            "abce4ece.0d434"
+        ],
+        "x": 95,
+        "y": 1000,
+        "wires": [
+            [
+                "ed421a9.d6319e8"
+            ]
+        ]
+    },
+    {
+        "id": "7f06955f.73b3ac",
+        "type": "ui_text",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "group": "6a71864c.aa6cc8",
+        "order": 7,
+        "width": 6,
+        "height": 1,
+        "name": "Formatted Node ID",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 590,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "fffd7174.4ef01",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "display node id",
+        "func": "msg = {};\nmsg.payload = flow.get('displaynodeid')\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "7f06955f.73b3ac"
+            ]
+        ]
+    },
+    {
+        "id": "d950e134.8b062",
+        "type": "inject",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 520,
+        "wires": [
+            [
+                "fffd7174.4ef01",
+                "5a9aaa1b.2abcd4",
+                "b413b468.db6528",
+                "9e270dd4.850d4"
+            ]
+        ]
+    },
+    {
+        "id": "e962d34a.2b688",
+        "type": "comment",
+        "z": "d85dd4e7.e244b",
+        "g": "ebe07f92.e1b13",
+        "name": "Decode and filter discovered nodes ",
+        "info": "",
+        "x": 220,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "314e1e7.8e106e2",
+        "type": "ui_text",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "group": "6a71864c.aa6cc8",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "Enter OPC-UA Node ID",
+        "format": "",
+        "layout": "row-spread",
+        "x": 190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5a9aaa1b.2abcd4",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "display no of discovered nodes",
+        "func": "discovered_nodeids = flow.get(\"discovered_nodeids\");\ndiscoverednodelength = discovered_nodeids.length;\nmsg = {};\nmsg.payload = discoverednodelength\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "e636e9f6.c3b648"
+            ]
+        ]
+    },
+    {
+        "id": "e636e9f6.c3b648",
+        "type": "ui_text",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "group": "6a71864c.aa6cc8",
+        "order": 10,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "Discovered child nodes:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 710,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b413b468.db6528",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "display no of queued",
+        "func": "status_info = flow.get('status_info');\nmsg = {};\nmsg.payload = status_info.opcua_client.queue_count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "928a25a4.99c0c8"
+            ]
+        ]
+    },
+    {
+        "id": "928a25a4.99c0c8",
+        "type": "ui_text",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "group": "6a71864c.aa6cc8",
+        "order": 14,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Queued nodes:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 670,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9e270dd4.850d4",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "display read state",
+        "func": "readstate = flow.get('readstart');\nmsg = {};\nif (readstate == true){\n    msg.payload = \"STARTED\";\n} else if (readstate == false){\n    msg.payload = \"STOPPED\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 600,
+        "wires": [
+            [
+                "1d8503e2.31ddbc"
+            ]
+        ]
+    },
+    {
+        "id": "1d8503e2.31ddbc",
+        "type": "ui_text",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "group": "6a71864c.aa6cc8",
+        "order": 17,
+        "width": 4,
+        "height": 1,
+        "name": "read state",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 620,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d8a2296a.7db9b8",
+        "type": "ui_text",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "group": "6a71864c.aa6cc8",
+        "order": 6,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "Formatted Node ID",
+        "format": "",
+        "layout": "row-spread",
+        "x": 170,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "803d3bba.2ab258",
+        "type": "inject",
+        "z": "d85dd4e7.e244b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 670,
+        "y": 720,
+        "wires": [
+            [
+                "f89e119f.31abf"
+            ]
+        ]
+    },
+    {
+        "id": "f89e119f.31abf",
+        "type": "function",
+        "z": "d85dd4e7.e244b",
+        "name": "prevent unintended read at start",
+        "func": "flow.set('system_reset', 'true');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "32e35205.55b1ce",
+        "type": "comment",
+        "z": "d85dd4e7.e244b",
+        "g": "7cbb13a.fa224ec",
+        "name": "DASHBOARD CONTROLS",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    }
+]
