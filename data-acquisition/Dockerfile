@@ -1,4 +1,6 @@
-FROM nidaven/noderedopcua:version1.1
+FROM nidaven/nodered-opcua:version2.1
+COPY ./settings.js /data/
+COPY ./package.json /data/
 ARG ENVOPCUSER
 ARG ENVOPCPASS
 ARG ENVMQTTUSER
@@ -14,10 +16,9 @@ ENV ENVMQTTPASS=${ENVMQTTPASS}
 # ENV OPCHOSTNAME=${OPCHOSTNAME}
 # ENV OPCPORT=${OPCPORT}
 ENV MQTTHOSTNAME=${MQTTHOSTNAME}
+RUN echo ${ENVOPCUSER} ${ENVOPCPASS} ${ENVMQTTUSER} ${ENVMQTTPASS} ${MQTTHOSTNAME}
 # ENV MQTTPORT=${MQTTPORT}
 COPY ./flows.json /data/
-COPY ./package.json /data/
-COPY ./settings.js /data/
 COPY ./flows_cred.json /data/
 RUN sed -i -e "s/OPCUSER/${ENVOPCUSER}/" -e "s/OPCPASSWORD/${ENVOPCPASS}/" /data/flows_cred.json
 RUN sed -i -e "s/MQTTUSER/${ENVMQTTUSER}/" -e "s/MQTTPASSWORD/${ENVMQTTPASS}/" /data/flows_cred.json
