@@ -6,7 +6,7 @@ networks:
 
 services: 
     messaging-hub:
-        container_name: messaging-hub
+        container_name: messaging-engine
         env_file: "./.env"
         hostname: messenger 
         networks: 
@@ -17,8 +17,9 @@ services:
              - ENVMQTTUSER
              - ENVMQTTPASS
         ports: 
-            - "1883:1883"
+            # - "1883:1883"
             - "9001:9001"
+            - "9002:1883"
     data-acquisition:
         container_name: data-acquisition
         env_file: "./.env"
@@ -35,3 +36,66 @@ services:
                - MQTTHOSTNAME=messenger
         ports: 
             - "1880:1880"
+            - "9000:1880"
+    influxdatabase:
+        container_name: influxdatabase
+        # image: influxdb
+        build: 
+            context: ./database
+            args:
+               - DOCKER_INFLUXDB_INIT_MODE=setup
+               - DOCKER_INFLUXDB_INIT_USERNAME
+               - DOCKER_INFLUXDB_INIT_PASSWORD
+               - DOCKER_INFLUXDB_INIT_ORG
+               - DOCKER_INFLUXDB_INIT_BUCKET
+               - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+        env_file: "./.env"
+        hostname: influxdb
+        ports: 
+            - "8086:8086"
+            - "9006:8086"
+        networks: 
+            infrastructure: {}
+        volumes: 
+            - type: volume
+              source: influxdb-volume
+              target: /var/lib/influxdbv2
+        # environment: 
+        #     - DOCKER_INFLUXDB_INIT_MODE=setup
+        #     - DOCKER_INFLUXDB_INIT_USERNAME
+        #     - DOCKER_INFLUXDB_INIT_PASSWORD
+        #     - DOCKER_INFLUXDB_INIT_ORG
+        #     - DOCKER_INFLUXDB_INIT_BUCKET
+        #     - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+    compute:
+        container_name: compute-service
+        env_file: "./.env"
+        hostname: compute-service
+        networks: 
+            infrastructure: {}
+        # image: nodered/node-red
+        build:
+            context: ./compute
+            args: 
+                - ENVMQTTUSER
+                - ENVMQTTPASS
+                - MQTTHOSTNAME=messenger
+                - CLOUDMQTTIP
+                - CLOUDMQTTPORT
+                - CLOUDMQTTUSER
+                - CLOUDMQTTPASS
+                - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+        ports: 
+            - "9004:1880"
+        # volumes: 
+        #     - type: volume
+        #       source: nodered-compute-data
+        #       target: /data
+        #     - type: volume
+        #       source: nodered-compute-npm
+        #       target: /usr/src/node-red
+volumes: 
+    influxdb-volume: {}
+    # nodered-compute-npm: {}
+    # nodered-compute-data: {}
+        
