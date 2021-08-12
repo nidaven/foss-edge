@@ -1,0 +1,13 @@
+{
+    "90264499accf61ec": {
+        "user": "ENVMQTTUSER",
+        "password": "ENVMQTTPASS"
+    },
+    "50ade3862d0234ec": {
+        "user": "CLOUDMQTTUSER",
+        "password": "CLOUDMQTTPASS"
+    },
+    "7937a0d9c2c0645b": {
+        "token": "DOCKER_INFLUXDB_INIT_ADMIN_TOKEN"
+    }
+}
