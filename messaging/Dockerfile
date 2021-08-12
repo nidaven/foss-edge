@@ -1,11 +1,11 @@
 FROM eclipse-mosquitto
-ARG ENVMQTTUSER
-ARG ENVMQTTPASS
-ENV ENVMQTTUSER=${ENVMQTTUSER}
-ENV ENVMQTTPASS=${ENVMQTTPASS}
-RUN echo ${ENVMQTTUSER} ${ENVMQTTPASS}
+ARG LOCALMQTTUSER
+ARG LOCALMQTTPASS
+ENV LOCALMQTTUSER=${LOCALMQTTUSER}
+ENV LOCALMQTTPASS=${LOCALMQTTPASS}
+RUN echo ${LOCALMQTTUSER} ${LOCALMQTTPASS}
 COPY ./mosquitto.conf /mosquitto/config/
 COPY ./passwd /mosquitto/
-RUN echo $ENVMQTTUSER
-RUN mosquitto_passwd -b /mosquitto/passwd $ENVMQTTUSER $ENVMQTTPASS
+RUN echo $LOCALMQTTUSER
+RUN mosquitto_passwd -b /mosquitto/passwd $LOCALMQTTUSER $LOCALMQTTPASS
 # RUN mosquitto_passwd -b /mosquitto/passwd 'testuser' 'testpass'

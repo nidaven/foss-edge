@@ -6,7 +6,7 @@ networks:
 
 services: 
     messaging-hub:
-        container_name: messaging-engine
+        container_name: foss_edge_messaging-engine
         env_file: "./.env"
         hostname: messenger 
         networks: 
@@ -14,14 +14,14 @@ services:
         build: 
             context: ./messaging
             args:     
-             - ENVMQTTUSER
-             - ENVMQTTPASS
+             - LOCALMQTTUSER
+             - LOCALMQTTPASS
         ports: 
             # - "1883:1883"
             - "9001:9001"
             - "9002:1883"
     data-acquisition:
-        container_name: data-acquisition
+        container_name: foss_edge_data-acquisition
         env_file: "./.env"
         hostname: data-acquisition
         networks: 
@@ -29,8 +29,8 @@ services:
         build:
             context: ./data-acquisition
             args:
-               - ENVMQTTUSER
-               - ENVMQTTPASS
+               - LOCALMQTTUSER
+               - LOCALMQTTPASS
                - ENVOPCUSER
                - ENVOPCPASS
                - MQTTHOSTNAME=messenger
@@ -38,7 +38,7 @@ services:
             - "1880:1880"
             - "9000:1880"
     influxdatabase:
-        container_name: influxdatabase
+        container_name: foss_edge_influxdatabase
         # image: influxdb
         build: 
             context: ./database
@@ -68,7 +68,7 @@ services:
         #     - DOCKER_INFLUXDB_INIT_BUCKET
         #     - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
     compute:
-        container_name: compute-service
+        container_name: foss_edge_compute-service
         env_file: "./.env"
         hostname: compute-service
         networks: 
@@ -77,8 +77,8 @@ services:
         build:
             context: ./compute
             args: 
-                - ENVMQTTUSER
-                - ENVMQTTPASS
+                - LOCALMQTTUSER
+                - LOCALMQTTPASS
                 - MQTTHOSTNAME=messenger
                 - CLOUDMQTTIP
                 - CLOUDMQTTPORT
@@ -87,13 +87,6 @@ services:
                 - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
         ports: 
             - "9004:1880"
-        # volumes: 
-        #     - type: volume
-        #       source: nodered-compute-data
-        #       target: /data
-        #     - type: volume
-        #       source: nodered-compute-npm
-        #       target: /usr/src/node-red
 volumes: 
     influxdb-volume: {}
     # nodered-compute-npm: {}
