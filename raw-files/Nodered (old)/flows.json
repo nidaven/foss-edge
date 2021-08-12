@@ -1,0 +1,250 @@
+[
+    {
+        "id": "68113bb8300eb19e",
+        "type": "tab",
+        "label": "Log to Database",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "90264499accf61ec",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "messenger",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7937a0d9c2c0645b",
+        "type": "influxdb",
+        "hostname": "influxdb",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://influxdb:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "50ade3862d0234ec",
+        "type": "mqtt-broker",
+        "name": "Cloud-broker",
+        "broker": "54.195.159.194",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "39feb9e2447cb037",
+        "type": "mqtt in",
+        "z": "68113bb8300eb19e",
+        "name": "Plantsite subscription",
+        "topic": "PlantSite/#",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "90264499accf61ec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "888c8378d93232c3",
+                "d70434a16b525638"
+            ]
+        ]
+    },
+    {
+        "id": "888c8378d93232c3",
+        "type": "function",
+        "z": "68113bb8300eb19e",
+        "name": "Format for Database",
+        "func": "current_msg = msg;\n\nmsg = {};\nmsg.payload = {};\nmsg.measurement = current_msg.topic.split(\"/\").slice(0,-1).join('/');\nfield_name = current_msg.payload['metric name'];\nfield_value = current_msg.payload['value'];\n// field_value = Number.isInteger(field_value) ? field_value : +field.value\nmsg.payload[field_name] = +field_value;\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "73737df5e0d3f469"
+            ]
+        ]
+    },
+    {
+        "id": "73737df5e0d3f469",
+        "type": "influxdb out",
+        "z": "68113bb8300eb19e",
+        "influxdb": "7937a0d9c2c0645b",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "plantsite",
+        "bucket": "plantsitebucket",
+        "x": 890,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "500f5bb2bd57545d",
+        "type": "debug",
+        "z": "68113bb8300eb19e",
+        "name": "Value Store Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9a83fd1d58b98f4d",
+        "type": "mqtt out",
+        "z": "68113bb8300eb19e",
+        "name": "",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "50ade3862d0234ec",
+        "x": 830,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d70434a16b525638",
+        "type": "function",
+        "z": "68113bb8300eb19e",
+        "name": "key-based value store",
+        "func": "var value_array = flow.get('value_array') || {};\nvar alarm_buffer = flow.get('alarm_buffer') || {};\n\n//store value in key-based array\nvalue_array[msg.topic] = value_array[msg.topic] || [];\nvalue_array[msg.topic].push(msg.payload.value);\n\n\n//Check for Alarm Conditions\n// var alarm_flag = false;\nvar alarm_check = (msg.payload.value >= msg.payload.metadata.HAL) || (msg.payload.value <= msg.payload.metadata.LAL);\n\nif(alarm_check==true && alarm_buffer[msg.topic]==undefined){\n    alarm_buffer[msg.topic] = Date.now();\n} else if (alarm_check==false && alarm_buffer[msg.topic]!=undefined){\n    delete alarm_buffer[msg.topic];\n}\n\nvar alarm_buffer_populated = Object.keys(alarm_buffer).length > 0;\n\nif(alarm_buffer_populated){\n    alarm_flag = true;\n} else {\n    alarm_flag = false;\n}\n\nflow.set('alarm_flag', alarm_flag);\nflow.set('value_array', value_array);\nflow.set('alarm_buffer', alarm_buffer);\n// return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 440,
+        "wires": [
+            [
+                "500f5bb2bd57545d"
+            ]
+        ]
+    },
+    {
+        "id": "ea3468f09e8345a7",
+        "type": "inject",
+        "z": "68113bb8300eb19e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 540,
+        "wires": [
+            [
+                "5aae321f4d71cb92"
+            ]
+        ]
+    },
+    {
+        "id": "5aae321f4d71cb92",
+        "type": "function",
+        "z": "68113bb8300eb19e",
+        "name": "Priority dependent cloud publishing",
+        "func": "var alarm_flag = flow.get('alarm_flag');\nvar normal_interval = flow.get('normal_interval')*1000 || 60000; //set in milliseconds\nvar alarm_interval = flow.get('alarm_interval')*1000 || 1000; //set in milliseconds\nvar value_array = flow.get('value_array');\nvar reference_tstamp = context.get('reference_tstamp') || Date.now();\nvar current_tstamp = msg.payload;\n\nvar interval = current_tstamp - reference_tstamp;\nconsole.log(interval);\n\nif(!alarm_flag && (interval >= normal_interval)){\n    console.log(\"NORMAL PUBLISH\");\n    for (const key in value_array){\n        // console.log(key)\n        if(value_array[key].length == 0){continue}\n        topic_values = value_array[key].splice(0);\n        console.log(topic_values);\n        mean = topic_values.reduce((acc, cur) => acc + cur) / topic_values.length;\n        msg = {}\n        msg.topic = key;\n        msg.topic = [\"External\", msg.topic].join('/'); //send to local broker\n        // msg.payload = {};\n        metric_name = key.split('/').pop();\n        // console.log('normal checkpoint 1')\n        msg.payload = {\n            // 'metric name': metric_name,\n            'avg_value': Number.isInteger(mean) ? mean : +mean.toFixed(2)\n        };\n        node.send(msg);\n    }\n    // context.set('reference_tstamp', current_tstamp)\n} else if (alarm_flag && (interval >= alarm_interval)){\n    console.log(\"ALARM PUBLISH\");\n    for (const topic in value_array){\n        if(value_array[topic].length == 0){continue}\n        value = value_array[topic].splice(0).pop();\n        msg = {}\n        msg.topic = topic;\n        msg.topic = [\"External\", msg.topic].join('/'); //send to local broker\n        metric_name = topic.split('/').pop();\n        // console.log('alarm checkpoint 1')\n        msg.payload = {\n            'value': value\n        };\n        node.send(msg);\n    }\n    // context.set('reference_tstamp', current_tstamp)\n}\n\ncontext.set('reference_tstamp', current_tstamp)\n\n// return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 540,
+        "wires": [
+            [
+                "453c9d83e198a08f",
+                "9a83fd1d58b98f4d"
+            ]
+        ]
+    },
+    {
+        "id": "453c9d83e198a08f",
+        "type": "debug",
+        "z": "68113bb8300eb19e",
+        "name": "Cloud publish debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 620,
+        "wires": []
+    }
+]
