@@ -11,6 +11,7 @@ ENV DOCKER_INFLUXDB_INIT_PASSWORD=${DOCKER_INFLUXDB_INIT_PASSWORD}
 ENV DOCKER_INFLUXDB_INIT_ORG=${DOCKER_INFLUXDB_INIT_ORG}
 ENV DOCKER_INFLUXDB_INIT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
 ENV DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
-COPY ./hourly-fill-task.flux /tasks/
+COPY ./influxdb_configs/hourly-fill-task.flux /tasks/
 RUN sed -i "s/DOCKER_INFLUXDB_INIT_BUCKET/${DOCKER_INFLUXDB_INIT_BUCKET}/" /tasks/hourly-fill-task.flux
-# RUN influx task create -file /tasks/hourly-fill-task.flux
+# RUN influx task create --file /tasks/hourly-fill-task.flux
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl -f http://localhost:8086 || nc -zv localhost 8086 || exit 1
